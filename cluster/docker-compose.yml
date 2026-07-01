@@ -1,0 +1,59 @@
+services:
+  master:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mpi-master
+    hostname: master
+    volumes:
+      - ..:/workspace
+    networks:
+      - mpi_net
+
+  worker1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mpi-worker1
+    hostname: worker1
+    volumes:
+      - ..:/workspace
+    networks:
+      - mpi_net
+
+  worker2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mpi-worker2
+    hostname: worker2
+    volumes:
+      - ..:/workspace
+    networks:
+      - mpi_net
+
+  worker3:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mpi-worker3
+    hostname: worker3
+    volumes:
+      - ..:/workspace
+    networks:
+      - mpi_net
+
+  worker4:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mpi-worker4
+    hostname: worker4
+    volumes:
+      - ..:/workspace
+    networks:
+      - mpi_net
+
+networks:
+  mpi_net:
+    driver: bridge
