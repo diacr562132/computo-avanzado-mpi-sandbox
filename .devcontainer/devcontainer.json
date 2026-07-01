@@ -3,6 +3,13 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest",
+      "moby": true,
+      "dockerDashComposeVersion": "v2"
+    }
+  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -11,6 +18,6 @@
       ]
     }
   },
-  "postCreateCommand": "python3 --version && mpirun --version && python3 -c \"from mpi4py import MPI; print('mpi4py funcionando')\"",
+  "postCreateCommand": "python3 --version && mpirun --version && python3 -c \"from mpi4py import MPI; print('mpi4py funcionando')\" && docker --version && docker compose version",
   "remoteUser": "root"
 }
